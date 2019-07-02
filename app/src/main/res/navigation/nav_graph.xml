@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/action_start">
+
+    <fragment android:id="@+id/action_start" android:name="com.example.day12_1.BlankFragment"
+              android:label="fragment_start" tools:layout="@layout/fragment_start">
+        <action android:id="@+id/action_start" app:destination="@id/action_game"/>
+    </fragment>
+    <fragment android:id="@+id/action_game" android:name="com.example.day12_1.FragmentGame"
+              android:label="FragmentGame">
+        <action android:id="@+id/action_win" app:destination="@id/action_win" app:popUpTo="@+id/action_game"/>
+        <action android:id="@+id/action_fragmentGame_to_fragmentAgain" app:destination="@id/action_again"/>
+    </fragment>
+    <fragment android:id="@+id/action_win" android:name="com.example.day12_1.FragmentWin" android:label="FragmentWin">
+        <action android:id="@+id/action_fragmentWin_to_action_start" app:destination="@id/action_start"
+                app:popUpTo="@+id/action_win"/>
+    </fragment>
+    <fragment android:id="@+id/action_again" android:name="com.example.day12_1.FragmentAgain"
+              android:label="FragmentAgain">
+        <action android:id="@+id/action_action_again_to_action_game" app:destination="@id/action_game"
+                app:popUpTo="@+id/action_again"/>
+    </fragment>
+</navigation>
